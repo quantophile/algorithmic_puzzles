@@ -55,6 +55,45 @@ void LinkedList::insert_at_k(int k, int element)
 	}
 }
 
+LinkedList LinkedList::operator+(const LinkedList& l)
+{
+	std::shared_ptr<Node> l1 = m_head;
+	std::shared_ptr<Node> l2 = l.m_head;
+	
+	LinkedList result{};
+	int sum{ 0 }, carry{ 0 };
+
+	while (l1 != nullptr || l2 != nullptr || carry)
+	{
+		sum = carry;
+		if (l1 != nullptr)
+		{
+			sum += l1->m_data;
+			l1 = l1->m_next;
+		}
+
+		if (l2 != nullptr)
+		{
+			sum += l2->m_data;
+			l2 = l2->m_next;
+		}
+
+		if (sum >= 10)
+		{
+			sum -= 10;
+			carry = 1;
+		}
+		else
+		{
+			carry = 0;
+		}
+
+		result.push_back(sum);
+	}
+
+	return result;
+}
+
 void LinkedList::pop_back()
 {
 	std::shared_ptr<Node> pred = nullptr;
@@ -83,3 +122,4 @@ void LinkedList::pop_front()
 {
 	m_head = m_head->m_next;
 }
+

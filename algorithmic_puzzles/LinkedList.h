@@ -25,6 +25,7 @@ public:
 	void pop_back();
 	void pop_front();
 	void insert_at_k(int k, int element);
+	LinkedList operator+(const LinkedList& l);
 
 	friend std::ostream& operator<<(std::ostream& out, LinkedList& l)
 	{

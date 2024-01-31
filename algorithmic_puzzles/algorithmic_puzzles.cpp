@@ -1,14 +1,14 @@
 
 #include <iostream>
-#include "DoublyLinkedList.h"
+#include "LinkedList.h"
 
 int main()
 {
-    DoublyLinkedList myList{1,2};
-    myList.delete_at_k(1);
+    LinkedList num1{ 9,9,9,9,9,9,9 };
+    LinkedList num2{ 9,9,9,9 };
+    LinkedList num3 = num1 + num2;
 
-
-    std::cout << myList;
+    std::cout << num3;
     return 0;
 }
 
