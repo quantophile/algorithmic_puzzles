@@ -122,4 +122,3 @@ void LinkedList::pop_front()
 {
 	m_head = m_head->m_next;
 }
-

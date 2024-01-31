@@ -24,6 +24,49 @@ public:
 	void push_front(int element);
 	void pop_back();
 	void pop_front();
+
+	/*
+	* You are given two sorted linked lists list1 and list2.
+
+	Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists.
+
+	Return the merged linked list.
+	*/
+	friend LinkedList merge_two_lists(LinkedList& list1, LinkedList& list2)
+	{
+		std::shared_ptr<Node> l1 = list1.m_head;
+		std::shared_ptr<Node> l2 = list2.m_head;
+		LinkedList result{};
+
+		while (l1 != nullptr && l2 != nullptr)
+		{
+			if (l1->m_data < l2->m_data)
+			{
+				result.push_back(l1->m_data);
+				l1 = l1->m_next;
+			}
+			else
+			{
+				result.push_back(l2->m_data);
+				l2 = l2->m_next;
+			}
+		}
+
+		while (l1 != nullptr)
+		{
+			result.push_back(l1->m_data);
+			l1 = l1->m_next;
+		}
+
+		while (l2 != nullptr)
+		{
+			result.push_back(l2->m_data);
+			l2 = l2->m_next;
+		}
+
+		return result;
+	}
+
 	void insert_at_k(int k, int element);
 	LinkedList operator+(const LinkedList& l);
 
