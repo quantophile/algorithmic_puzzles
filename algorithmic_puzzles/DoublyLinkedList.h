@@ -16,16 +16,17 @@ public:
 
     std::shared_ptr<Node> m_head;
     std::shared_ptr<Node> m_tail;
+    int length;
 
-    DoublyLinkedList() { m_head = nullptr; m_tail = nullptr; }
+    DoublyLinkedList() { m_head = nullptr; m_tail = nullptr; length = 0; }
     DoublyLinkedList(std::initializer_list<int> l);
 
     void push_back(int element);
     void push_front(int element);
     void pop_back();
     void pop_front();
-    void insert_at_k(int element);
-    void delete_at_k(int element);
+    void insert_at_k(int k, int element);
+    void delete_at_k(int k, int element);
     void reverse();
 
     friend std::ostream& operator<<(std::ostream& out, DoublyLinkedList& l)

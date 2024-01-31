@@ -4,9 +4,8 @@
 
 int main()
 {
-    DoublyLinkedList myList{};
-    myList.push_front(2);
-    myList.push_front(1);
+    DoublyLinkedList myList{1,2,3,4,5};
+    myList.insert_at_k(3, 6);
 
     std::cout << myList;
     return 0;
