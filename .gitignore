@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/algorithmic_puzzles/.vs/algorithmic_puzzles
+/algorithmic_puzzles/x64/Debug
