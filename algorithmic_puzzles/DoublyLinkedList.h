@@ -26,7 +26,7 @@ public:
     void pop_back();
     void pop_front();
     void insert_at_k(int k, int element);
-    void delete_at_k(int k, int element);
+    void delete_at_k(int k);
     void reverse();
 
     friend std::ostream& operator<<(std::ostream& out, DoublyLinkedList& l)
