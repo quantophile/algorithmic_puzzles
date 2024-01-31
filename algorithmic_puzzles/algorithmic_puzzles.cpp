@@ -1,8 +1,14 @@
 
 #include <iostream>
+#include "DoublyLinkedList.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    DoublyLinkedList myList{};
+    myList.push_front(2);
+    myList.push_front(1);
+
+    std::cout << myList;
+    return 0;
 }
 

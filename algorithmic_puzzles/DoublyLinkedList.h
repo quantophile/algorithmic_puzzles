@@ -3,7 +3,7 @@
 #include <iostream>
 #include <memory>
 
-class DoubleLinkedList {
+class DoublyLinkedList {
 public:
     class Node {
     public:
@@ -17,8 +17,8 @@ public:
     std::shared_ptr<Node> m_head;
     std::shared_ptr<Node> m_tail;
 
-    DoubleLinkedList() { m_head = nullptr; m_tail = nullptr; }
-    DoubleLinkedList(std::initializer_list<int> l);
+    DoublyLinkedList() { m_head = nullptr; m_tail = nullptr; }
+    DoublyLinkedList(std::initializer_list<int> l);
 
     void push_back(int element);
     void push_front(int element);
@@ -28,7 +28,7 @@ public:
     void delete_at_k(int element);
     void reverse();
 
-    friend std::ostream& operator<<(std::ostream& out, DoubleLinkedList& l)
+    friend std::ostream& operator<<(std::ostream& out, DoublyLinkedList& l)
     {
         auto it = l.m_head;
 
