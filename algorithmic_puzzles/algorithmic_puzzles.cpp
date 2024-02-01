@@ -1,14 +1,13 @@
 
 #include <iostream>
-#include "LinkedList.h"
+#include "Arrays.h"
+#include <vector>
 
 int main()
 {
-    LinkedList lst1{ 1,3,5,7 };
-    LinkedList lst2{ 2,4,6,8,9 };
-    LinkedList lst3 = merge_two_lists(lst1,lst2);
+    std::vector<int> vect{ 1,2,3,4,5,6,7 };
 
-    std::cout << lst3;
+    int x = find(vect, 4);
 
     return 0;
 }
