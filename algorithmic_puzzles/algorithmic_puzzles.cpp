@@ -5,10 +5,12 @@
 
 int main()
 {
-    std::vector<int> vect{ 1,2,3,4,5,6,7 };
+    std::vector<int> A{ 9,8,7,6,5,4,3,1 };
+    //std::vector<std::vector<int>> results{};
 
-    int x = find(vect, 4);
+    qs(A, 0, A.size() - 1);
 
+    std::cout << A;
     return 0;
 }
 
