@@ -342,6 +342,85 @@ void qs(vector<int>& A, int low, int high) {
 	}
 }
 
+/* Combination sum
+*/
+
+void findCombinations(int i, vector<int>ds, int target, vector<int>& arr, vector<vector<int>>& results)
+{
+	if (i == arr.size())
+	{
+		if (target == 0)
+		{
+			results.push_back(ds);
+		}
+		return;
+	}
+	
+	if (arr[i] <= target)
+	{
+		ds.push_back(arr[i]);
+		findCombinations(i, ds, target - arr[i], arr, results);
+		ds.pop_back();
+	}
+	
+	findCombinations(i + 1, ds, target, arr, results);
+}
+
+/*
+* Combination Sum - II
+*/
+
+void findCombinations2(int i, vector<int>ds, int target, vector<int>& arr, vector<vector<int>>& results)
+{
+	if (i == arr.size())
+	{
+		if (target == 0)
+		{
+			results.push_back(ds);
+		}
+		return;
+	}
+
+	if (arr[i] <= target)
+	{
+		ds.push_back(arr[i]);
+		findCombinations2(i + 1, ds, target - arr[i], arr, results);
+		ds.pop_back();
+	}
+
+	findCombinations2(i + 1, ds, target, arr, results);
+}
+
+/*
+* Subset sums.
+* https://www.geeksforgeeks.org/problems/subset-sums2234/1
+*/
+void findSubsets(int i, vector<int> ds, vector<int> arr, vector<int>& results)
+{
+	if (i == arr.size())
+	{
+		int sum{ 0 };
+		for (auto v : ds)
+			sum += v;
+
+		results.push_back(sum);
+		return;
+	}
+
+	ds.push_back(arr[i]);
+	findSubsets(i + 1, ds, arr, results);
+	ds.pop_back();
+	findSubsets(i + 1, ds, arr, results);
+
+}
+vector<int> subsetSums(vector<int> arr, int N)
+{
+	vector<int> results{};
+	vector<int> ds{};
+	findSubsets(0, ds, arr, results);
+	return results;
+}
+
 //Print the array
 template <typename T>
 std::ostream& operator<<(std::ostream& out, const std::vector<T>& vect)
