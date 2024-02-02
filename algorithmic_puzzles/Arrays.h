@@ -3,6 +3,7 @@
 #include <set>
 #include <algorithm>
 #include <map>
+#include <string>
 
 using namespace std;
 
@@ -418,6 +419,41 @@ vector<int> subsetSums(vector<int> arr, int N)
 	vector<int> results{};
 	vector<int> ds{};
 	findSubsets(0, ds, arr, results);
+	return results;
+}
+
+/*
+* Permutations of a string/array
+* https://leetcode.com/problems/permutations/ 
+*/
+
+void findPermutations(int i, vector<int>& ds, vector<int>& arr, vector<vector<int>>& results, map<int, bool> isElementPicked)
+{
+	if (ds.size() == arr.size())
+	{
+		results.push_back(ds);
+		return;
+	}
+
+	for (int i{}; i < arr.size(); ++i)
+	{
+		int n = arr.size();
+		if (!isElementPicked[i])
+		{
+			ds.push_back(arr[i]);
+			isElementPicked[i] = true;
+			findPermutations((i + 1) % n, ds, arr, results, isElementPicked);
+			ds.pop_back();
+			isElementPicked[i] = false;
+		}
+	}
+}
+
+vector<vector<int>> permute(vector<int>& nums) {
+	vector<int> ds{};
+	vector<vector<int>> results{};
+	map<int, bool> isElementPicked{};
+	findPermutations(0, ds, nums, results, isElementPicked);
 	return results;
 }
 
